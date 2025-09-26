@@ -1,0 +1,28 @@
+.puma-card {
+    border-radius: 10px;
+    background-color: #f0f8ff;
+    border: 2px solid #ff6600;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+.puma-card button {
+    border-radius: 10px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: border-radius 0.5s ease, background-color 0.3s ease;
+}
+.puma-card button:hover{
+    border-radius: 20px;
+    background-color: lightgreen;
+    color: black;
+}
+.puma-card p{
+    font-size: 1.2rem;
+}
+
+
