@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>25LEC07 - Calculator</title>
+</head>
+<body>
+    <button onClick="calc()">Click here to run</button>
+<script>
+function calc(){
+    var num1 = parseInt(prompt("Enter First Number"));
+    var num2 = parseInt(prompt("Enter Second Number"));
+    var choice = parseInt(prompt("Select Operator: 1-Add, 2-Subtract, 3-Multiply, 4-Division"));
+    switch(choice){
+        case 1:
+            var result = num1 + num2;
+            document.write("Addition of "+num1+" & "+num2+" is "+result);
+            break;
+        case 2:
+            var result = num1 - num2;
+            document.write("Addition of "+num1+" & "+num2+" is "+result);
+            break;
+        case 3:
+            var result = num1 * num2;
+            document.write("Addition of "+num1+" & "+num2+" is "+result);
+            break;
+        case 4:
+            var result = num1 / num2;
+            document.write("Addition of "+num1+" & "+num2+" is "+result);
+            break;
+        default:
+            alert("Invalid Operator");
+        }
+    document.write("<br>Refresh to Continue");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>25LEC07 - For Loop</title>
+</head>
+<body>
+    <script>
+        var courses = ["Electronics & Computer", "Mechanical & Automation", "Computer", "MBA"];
+        var i;
+        var text = " Engineering";
+        document.write("Courses offered at AITD<br>")
+        for(i=0;i<courses.length;i++){
+            if(i==3){text = "";}
+            document.write("<br>" + courses[i] + text);
+        }
+        document.write("<br><br>The Variable courses is an "+typeof courses);
+        document.write("<br>The Variable text is a "+typeof text);
+    </script>
+</body>
+</html>
