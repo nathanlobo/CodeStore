@@ -22,5 +22,5 @@ for($i=1;$i<=10;$i++){
 echo"<br>Text using variable";
 $name="Nathan Lobo";
 $age=20;
-echo"My Name is $name & My age is $age";
+echo"<br>My Name is $name & My age is $age";
 ?>
