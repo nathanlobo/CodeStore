@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>25LEC07 Nathan Lobo - Registration</title>
+    <style>
+		body {
+			background-image: url("bg_img1.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h2, h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="date"],
+        input[type="datetime-local"],
+        input[type="time"],
+        input[type="search"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .signup-option {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        .signup-option a {
+            color: #383838;
+        }
+        .signup-option a:hover {
+            text-decoration: underline;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        input[type="submit"],
+        input[type="reset"],
+        input[type="button"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #000;
+            color: white;
+            font-size: 1em;
+        }
+        input[type="reset"] {
+            background-color: #696969;
+        }
+        input[type="button"] {
+            background-color: #383838;
+        }
+        input[type="submit"]:hover,
+        input[type="reset"]:hover,
+        input[type="button"]:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align:center">Register Your Account</h2>
+        <div class="signup-option">
+            Already have an account? <a href="./expt3-login.html">Login</a>
+        </div>
+        <form>
+            <label>First Name</label>
+            <input type="text" id="fname" placeholder="First Name" autofocus autocomplete="name" required>
+            <label>Last Name (Optional)</label>
+            <input type="text" id="lname" placeholder="Last Name">
+			<label>Username</label>
+            <input type="text" id="username" name="username" value="nathanlobo" readonly>
+			<label>Enter your Email</label>
+            <input type="email" id="email" name="email" size="16" placeholder="Email" required>
+            <label>Password</label>
+            <input type="password" id="password" name="password" maxlength="16" placeholder="Password" required>
+            <label>Telephone Number</label>
+            <input type="tel" placeholder="Tele-phone number">
+			<label>Telephone Number</label>
+			<input type="submit" id="favcolor" name="favcolor" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
