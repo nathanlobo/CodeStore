@@ -5,4 +5,3 @@ $email=$_POST['email'];
 echo"Welcome! $firstname $lastname";
 echo"<br>You've logged in using $email";
 ?>
-

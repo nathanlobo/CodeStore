@@ -70,5 +70,3 @@ $result = mysqli_query($conn,"select * from students order by id desc");
     <?php } ?>
 </body>
 </html>
-
-

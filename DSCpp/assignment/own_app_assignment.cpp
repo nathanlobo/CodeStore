@@ -1,24 +1,17 @@
-
 #include <iostream>   // For input/output operations
 #include <fstream>    // For file handling
 #include <vector>     // For using vector container
 #include <sstream>    // For string stream operations
 #include <iomanip>    // For output formatting
 using namespace std;
-
-
 // Struct to hold expense data (date, category, and amount)
 struct Expense {
     string date;      // Date of the expense
     string category;  // Category of the expense
     double amount;    // Amount spent
 };
-
-
 // File name where expenses are stored
 const string EXPENSE_FILE = "expenses.txt";
-
-
 // Loads all expenses from the file into the expenses vector
 void loadExpenses(vector<Expense>& expenses) {
     ifstream file(EXPENSE_FILE); // Open the file for reading
@@ -35,8 +28,6 @@ void loadExpenses(vector<Expense>& expenses) {
     }
     file.close();
 }
-
-
 // Saves all expenses from the vector to the file
 void saveExpenses(const vector<Expense>& expenses) {
     ofstream file(EXPENSE_FILE); // Open the file for writing (overwrites)
@@ -45,8 +36,6 @@ void saveExpenses(const vector<Expense>& expenses) {
     }
     file.close();
 }
-
-
 // Prompts the user to add a new expense and saves it
 void addExpense(vector<Expense>& expenses) {
     Expense e;
@@ -62,8 +51,6 @@ void addExpense(vector<Expense>& expenses) {
     saveExpenses(expenses);     // Save updated expenses to file
     cout << "Expense added!\n";
 }
-
-
 // Displays all expenses in a formatted table
 void viewExpenses(const vector<Expense>& expenses) {
     cout << "\n--- All Expenses ---\n";
@@ -78,8 +65,6 @@ void viewExpenses(const vector<Expense>& expenses) {
     }
     cout << "------------------------------------\n";
 }
-
-
 // Calculates and displays the total amount of all expenses
 void showTotal(const vector<Expense>& expenses) {
     double total = 0;
@@ -88,13 +73,10 @@ void showTotal(const vector<Expense>& expenses) {
     }
     cout << "Total expenses: " << total << "\n";
 }
-
-
 // Displays the main menu and handles user input
 void menu() {
     vector<Expense> expenses;    // Vector to store all expenses
     loadExpenses(expenses);      // Load existing expenses from file
-
     while (true) {
         cout << "\nExpense Tracker Menu\n";
         cout << "1. Add Expense\n";
@@ -102,11 +84,9 @@ void menu() {
         cout << "3. Show Total\n";
         cout << "4. Exit\n";
         cout << "Choose an option: ";
-
         int choice;
         cin >> choice;
         cin.ignore(); // consume leftover newline
-
         if (choice == 1) {
             addExpense(expenses);      // Add a new expense
         } else if (choice == 2) {
@@ -121,8 +101,6 @@ void menu() {
         }
     }
 }
-
-
 // Entry point of the program
 int main() {
     menu(); // Start the menu loop

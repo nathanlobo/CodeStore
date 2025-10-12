@@ -47,5 +47,3 @@ if(isset($_POST["submit"])){
     </table>
 </body>
 </html>
-
-

@@ -50,9 +50,3 @@ $result = $conn->query("SELECT * FROM students");
     <?php } ?>
 </body>
 </html>
-
-
-
-
-
-
