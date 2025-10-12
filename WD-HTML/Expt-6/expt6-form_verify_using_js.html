@@ -98,24 +98,171 @@
     <div class="container">
         <h2 style="text-align:center">Register Your Account</h2>
         <div class="signup-option">
-            Already have an account? <a href="./expt3-login.html">Login</a>
+            Already have an account? <a href="#">Login</a>
         </div>
-        <form>
-            <label>First Name</label>
+        <form id="regForm">
+            <label for="fname">First Name</label>
             <input type="text" id="fname" placeholder="First Name" autofocus autocomplete="name" required>
+            <span id="fnameError" role="status" aria-live="polite" style="color:#b00020; font-size:0.9em; display:block; margin-top:4px; margin-bottom:10px;"></span>
             <label>Last Name (Optional)</label>
             <input type="text" id="lname" placeholder="Last Name">
-			<label>Username</label>
-            <input type="text" id="username" name="username" value="nathanlobo" readonly>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <span id="usernameError" role="status" aria-live="polite" style="color:#b00020; font-size:0.9em; display:block; margin-top:4px; margin-bottom:10px;"></span>
 			<label>Enter your Email</label>
             <input type="email" id="email" name="email" size="16" placeholder="Email" required>
-            <label>Password</label>
-            <input type="password" id="password" name="password" maxlength="16" placeholder="Password" required>
-            <label>Telephone Number</label>
-            <input type="tel" placeholder="Tele-phone number">
-			<label>Telephone Number</label>
-			<input type="submit" id="favcolor" name="favcolor" value="Submit">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" maxlength="64" placeholder="Password" required>
+            <span id="passwordError" role="status" aria-live="polite" style="color:#b00020; font-size:0.9em; display:block; margin-top:4px; margin-bottom:10px;"></span>
+            <label for="phone">Phone Number (India)</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone number">
+            <span id="phoneError" role="status" aria-live="polite" style="color:#b00020; font-size:0.9em; display:block; margin-top:4px; margin-bottom:10px;"></span>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" placeholder="Age" min="0">
+            <span id="ageError" role="status" aria-live="polite" style="color:#b00020; font-size:0.9em; display:block; margin-top:4px; margin-bottom:10px;"></span>
+            <input type="submit" name="submit" value="Submit">
         </form>
+
+        <script>
+            (function(){
+                // Elements
+                var fname = document.getElementById('fname');
+                var fnameError = document.getElementById('fnameError');
+                var username = document.getElementById('username');
+                var usernameError = document.getElementById('usernameError');
+                var password = document.getElementById('password');
+                var passwordError = document.getElementById('passwordError');
+                var phone = document.getElementById('phone');
+                var phoneError = document.getElementById('phoneError');
+                var age = document.getElementById('age');
+                var ageError = document.getElementById('ageError');
+                var form = document.getElementById('regForm');
+
+                // Validate function: at least 2 letters
+                function validateFname() {
+                    var value = fname.value.trim();
+                    // Count letters only (ignore digits/space/punctuation)
+                    var lettersOnly = value.replace(/[^A-Za-z]/g, '');
+                    if (lettersOnly.length < 2) {
+                        var msg = 'First name must contain at least 2 letters.';
+                        fnameError.textContent = msg;
+                        return false;
+                    } else {
+                        fnameError.textContent = '';
+                        return true;
+                    }
+                }
+
+                // Live validation while typing
+                fname.addEventListener('input', function(){
+                    validateFname();
+                });
+
+                // ----- Username reserved-word and character check -----
+                // List of reserved words to block (case-insensitive)
+                var reservedWords = ['instagram', 'youtube', 'facebook', 'google', 'lobo'];
+
+                // Validate username characters and reserved-word rules.
+                // Allowed characters: letters, numbers, period (.) and underscore (_)
+                function validateUsername() {
+                    var raw = username.value || '';
+                    var val = raw.toLowerCase().trim();
+
+                    // Character rule: only allow letters, numbers, dot and underscore
+                    var allowed = /^[A-Za-z0-9._]+$/;
+                    if (raw.length > 0 && !allowed.test(raw)) {
+                        usernameError.textContent = 'Username may only contain letters, numbers, periods and underscores.';
+                        return false;
+                    }
+
+                    // Reject only when the username exactly matches a reserved word.
+                    for (var i = 0; i < reservedWords.length; i++) {
+                        if (val === reservedWords[i]) {
+                            usernameError.textContent = 'Username contains reserved word';
+                            return false;
+                        }
+                    }
+
+                    usernameError.textContent = '';
+                    return true;
+                }
+
+                // Live check as the user types
+                username.addEventListener('input', function(){
+                    validateUsername();
+                });
+
+                // ----- Password strength check -----
+                // Requirements: min 8 characters, uppercase, lowercase, number, special char
+                function validatePassword() {
+                    var val = password.value || '';
+                    var missing = [];
+                    if (val.length < 8) missing.push('at least 8 characters');
+                    if (!/[A-Z]/.test(val)) missing.push('an uppercase letter');
+                    if (!/[a-z]/.test(val)) missing.push('a lowercase letter');
+                    if (!/[0-9]/.test(val)) missing.push('a number');
+                    if (!/[!@#$%^&*(),.?":{}|<>\[\]\\/\\;_\-+=~`]/.test(val)) missing.push('a special character');
+
+                    if (missing.length > 0) {
+                        passwordError.textContent = 'Password must contain: ' + missing.join(', ');
+                        return false;
+                    }
+                    passwordError.textContent = '';
+                    return true;
+                }
+
+                password.addEventListener('input', function(){
+                    validatePassword();
+                });
+
+                // ----- Phone number check -----
+                function validatePhone() {
+                    var raw = phone.value || '';
+                    var digits = raw.replace(/\D/g, '');
+                    if (digits.length !== 10) {
+                        phoneError.textContent = 'Phone number must be exactly 10 digits.';
+                        return false;
+                    }
+                    phoneError.textContent = '';
+                    return true;
+                }
+
+                phone.addEventListener('input', function(){
+                    validatePhone();
+                });
+
+                // ----- Age check -----
+                function validateAge() {
+                    var v = parseInt(age.value, 10);
+                    if (isNaN(v) || v < 13) {
+                        ageError.textContent = 'You have to be 13+';
+                        return false;
+                    }
+                    ageError.textContent = '';
+                    return true;
+                }
+
+                age.addEventListener('input', function(){
+                    validateAge();
+                });
+
+                // Prevent form submit when invalid
+                form.addEventListener('submit', function(e){
+                    // Validate fields before allowing submit
+                    var fnameOK = validateFname();
+                    var usernameOK = validateUsername();
+                    var passwordOK = validatePassword();
+                    var phoneOK = validatePhone();
+                    var ageOK = validateAge();
+
+                    if (!fnameOK) { e.preventDefault(); e.stopPropagation(); fname.focus(); return; }
+                    if (!usernameOK) { e.preventDefault(); e.stopPropagation(); username.focus(); return; }
+                    if (!passwordOK) { e.preventDefault(); e.stopPropagation(); password.focus(); return; }
+                    if (!phoneOK) { e.preventDefault(); e.stopPropagation(); phone.focus(); return; }
+                    if (!ageOK) { e.preventDefault(); e.stopPropagation(); age.focus(); return; }
+                });
+            })();
+        </script>
     </div>
 </body>
 </html>
