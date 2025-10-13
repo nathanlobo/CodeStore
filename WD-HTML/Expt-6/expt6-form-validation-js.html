@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>25LEC07 Nathan Lobo - Registration</title>
+    <title>25LEC07 Form with Validation JS</title>
     <style>
 		body {
             font-family: Arial, sans-serif;
@@ -91,10 +91,7 @@
 </head>
 <body>
     <div class="container">
-        <h2 style="text-align:center">Register Your Account</h2>
-        <div class="signup-option">
-            Already have an account? <a href="#">Login</a>
-        </div>
+        <h2 style="text-align:center">Form with Validation JS</h2>
         <form id="regForm">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Username" required>
@@ -112,59 +109,46 @@
             <span id="ageError" role="status" aria-live="polite" style="color:#b00020; font-size:0.9em; display:block; margin-top:4px; margin-bottom:10px;"></span>
             <input type="submit" name="submit" value="Submit">
         </form>
-
         <script>
             (function(){
                 // Elements
-                var username = document.getElementById('username');
-                var usernameError = document.getElementById('usernameError');
-                var password = document.getElementById('password');
-                var passwordError = document.getElementById('passwordError');
-                var phone = document.getElementById('phone');
-                var phoneError = document.getElementById('phoneError');
-                var age = document.getElementById('age');
-                var ageError = document.getElementById('ageError');
-                var form = document.getElementById('regForm');
+                const username = document.getElementById('username');
+                const usernameError = document.getElementById('usernameError');
+                const password = document.getElementById('password');
+                const passwordError = document.getElementById('passwordError');
+                const phone = document.getElementById('phone');
+                const phoneError = document.getElementById('phoneError');
+                const age = document.getElementById('age');
+                const ageError = document.getElementById('ageError');
+                const form = document.getElementById('regForm');
 
                 // ----- Username reserved-word and character check -----
-                // List of reserved words to block (case-insensitive)
-                var reservedWords = ['instagram', 'youtube', 'facebook', 'google', 'lobo'];
+                const reservedWords = ['instagram', 'youtube', 'facebook', 'google', 'lobo'];
 
-                // Validate username characters and reserved-word rules.
-                // Allowed characters: letters, numbers, period (.) and underscore (_)
                 function validateUsername() {
-                    var raw = username.value || '';
-                    var val = raw.toLowerCase().trim();
+                    const raw = username.value || '';
+                    const val = raw.toLowerCase().trim();
+                    const allowed = /^[A-Za-z0-9._]+$/;
 
-                    // Character rule: only allow letters, numbers, dot and underscore
-                    var allowed = /^[A-Za-z0-9._]+$/;
                     if (raw.length > 0 && !allowed.test(raw)) {
                         usernameError.textContent = 'Username may only contain letters, numbers, periods and underscores.';
                         return false;
                     }
 
-                    // Reject only when the username exactly matches a reserved word.
-                    for (var i = 0; i < reservedWords.length; i++) {
-                        if (val === reservedWords[i]) {
-                            usernameError.textContent = 'Username contains reserved word';
-                            return false;
-                        }
+                    if (reservedWords.includes(val)) {
+                        usernameError.textContent = 'Username contains a reserved word.';
+                        return false;
                     }
 
                     usernameError.textContent = '';
                     return true;
                 }
-
-                // Live check as the user types
-                username.addEventListener('input', function(){
-                    validateUsername();
-                });
+                username.addEventListener('input', validateUsername);
 
                 // ----- Password strength check -----
-                // Requirements: min 8 characters, uppercase, lowercase, number, special char
                 function validatePassword() {
-                    var val = password.value || '';
-                    var missing = [];
+                    const val = password.value || '';
+                    const missing = [];
                     if (val.length < 8) missing.push('at least 8 characters');
                     if (!/[A-Z]/.test(val)) missing.push('an uppercase letter');
                     if (!/[a-z]/.test(val)) missing.push('a lowercase letter');
@@ -178,15 +162,12 @@
                     passwordError.textContent = '';
                     return true;
                 }
-
-                password.addEventListener('input', function(){
-                    validatePassword();
-                });
+                password.addEventListener('input', validatePassword);
 
                 // ----- Phone number check -----
                 function validatePhone() {
-                    var raw = phone.value || '';
-                    var digits = raw.replace(/\D/g, '');
+                    const raw = phone.value || '';
+                    const digits = raw.replace(/\D/g, '');
                     if (digits.length !== 10) {
                         phoneError.textContent = 'Phone number must be exactly 10 digits.';
                         return false;
@@ -194,14 +175,11 @@
                     phoneError.textContent = '';
                     return true;
                 }
-
-                phone.addEventListener('input', function(){
-                    validatePhone();
-                });
+                phone.addEventListener('input', validatePhone);
 
                 // ----- Age check -----
                 function validateAge() {
-                    var v = parseInt(age.value, 10);
+                    const v = parseInt(age.value, 10);
                     if (isNaN(v) || v < 13) {
                         ageError.textContent = 'You have to be 13+';
                         return false;
@@ -209,22 +187,24 @@
                     ageError.textContent = '';
                     return true;
                 }
-
-                age.addEventListener('input', function(){
-                    validateAge();
-                });
+                age.addEventListener('input', validateAge);
 
                 // Prevent form submit when invalid
-                form.addEventListener('submit', function(e){
-                    // Validate fields before allowing submit
-                    var usernameOK = validateUsername();
-                    var passwordOK = validatePassword();
-                    var phoneOK = validatePhone();
-                    var ageOK = validateAge();
-                    if (!usernameOK) { e.preventDefault(); e.stopPropagation(); username.focus(); return; }
-                    if (!passwordOK) { e.preventDefault(); e.stopPropagation(); password.focus(); return; }
-                    if (!phoneOK) { e.preventDefault(); e.stopPropagation(); phone.focus(); return; }
-                    if (!ageOK) { e.preventDefault(); e.stopPropagation(); age.focus(); return; }
+                form.addEventListener('submit', function(e) {
+                    // Validate fields before allowing submit, focusing on the first error
+                    if (!validateUsername()) {
+                        e.preventDefault();
+                        username.focus();
+                    } else if (!validatePassword()) {
+                        e.preventDefault();
+                        password.focus();
+                    } else if (!validatePhone()) {
+                        e.preventDefault();
+                        phone.focus();
+                    } else if (!validateAge()) {
+                        e.preventDefault();
+                        age.focus();
+                    }
                 });
             })();
         </script>
