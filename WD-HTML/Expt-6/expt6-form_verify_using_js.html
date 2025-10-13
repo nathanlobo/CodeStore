@@ -4,12 +4,7 @@
     <title>25LEC07 Nathan Lobo - Registration</title>
     <style>
 		body {
-			background-image: url("bg_img1.jpg");
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
@@ -101,11 +96,6 @@
             Already have an account? <a href="#">Login</a>
         </div>
         <form id="regForm">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" placeholder="First Name" autofocus autocomplete="name" required>
-            <span id="fnameError" role="status" aria-live="polite" style="color:#b00020; font-size:0.9em; display:block; margin-top:4px; margin-bottom:10px;"></span>
-            <label>Last Name (Optional)</label>
-            <input type="text" id="lname" placeholder="Last Name">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Username" required>
             <span id="usernameError" role="status" aria-live="polite" style="color:#b00020; font-size:0.9em; display:block; margin-top:4px; margin-bottom:10px;"></span>
@@ -126,8 +116,6 @@
         <script>
             (function(){
                 // Elements
-                var fname = document.getElementById('fname');
-                var fnameError = document.getElementById('fnameError');
                 var username = document.getElementById('username');
                 var usernameError = document.getElementById('usernameError');
                 var password = document.getElementById('password');
@@ -137,26 +125,6 @@
                 var age = document.getElementById('age');
                 var ageError = document.getElementById('ageError');
                 var form = document.getElementById('regForm');
-
-                // Validate function: at least 2 letters
-                function validateFname() {
-                    var value = fname.value.trim();
-                    // Count letters only (ignore digits/space/punctuation)
-                    var lettersOnly = value.replace(/[^A-Za-z]/g, '');
-                    if (lettersOnly.length < 2) {
-                        var msg = 'First name must contain at least 2 letters.';
-                        fnameError.textContent = msg;
-                        return false;
-                    } else {
-                        fnameError.textContent = '';
-                        return true;
-                    }
-                }
-
-                // Live validation while typing
-                fname.addEventListener('input', function(){
-                    validateFname();
-                });
 
                 // ----- Username reserved-word and character check -----
                 // List of reserved words to block (case-insensitive)
@@ -249,13 +217,10 @@
                 // Prevent form submit when invalid
                 form.addEventListener('submit', function(e){
                     // Validate fields before allowing submit
-                    var fnameOK = validateFname();
                     var usernameOK = validateUsername();
                     var passwordOK = validatePassword();
                     var phoneOK = validatePhone();
                     var ageOK = validateAge();
-
-                    if (!fnameOK) { e.preventDefault(); e.stopPropagation(); fname.focus(); return; }
                     if (!usernameOK) { e.preventDefault(); e.stopPropagation(); username.focus(); return; }
                     if (!passwordOK) { e.preventDefault(); e.stopPropagation(); password.focus(); return; }
                     if (!phoneOK) { e.preventDefault(); e.stopPropagation(); phone.focus(); return; }
