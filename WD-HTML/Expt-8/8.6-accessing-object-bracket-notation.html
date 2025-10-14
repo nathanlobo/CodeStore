@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+    <title>Accessing Object Bracket Notation</title>
+</head>
+<body>
+    <script>
+        const a = '{"name":"Nathan", "age":21, "branch":"ECOMP"}';
+        const b = JSON.parse(a);
+        document.write("Name is ",b['name']);
+        document.write("<br>Age is ",b['age']);
+        document.write("<br>Branch is ",b['branch']);
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+    <title>JSON Array Loop</title>
+</head>
+<body>
+    <script>
+        const a = '{"name":"Nathan", "age":21, "cars":["Ford","BMW","Fiat"]}'
+        const b = JSON.parse(a);
+        document.write("Cars are ");
+        for(var i=0;i<b.cars.length;i++){
+            document.write(" "+ b.cars[i])
+        }
+    </script>
+</body>
+</html>
