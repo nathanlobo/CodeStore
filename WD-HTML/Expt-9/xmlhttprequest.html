@@ -1,0 +1,18 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>XMLHttpRequest</title>
+</head>
+<body>
+<script type="text/javascript">
+var xhr = new XMLHttpRequest();
+xhr.onload = function(){
+var obj1 = JSON.parse(xhr.responseText);
+document.write("<br>Id is "+obj1.id);
+document.write("<br>First Name is "+obj1.fname);
+document.write("<br>Branch is "+obj1.branch);}
+xhr.open("GET","network1.json");
+xhr.send();
+</script>
+</body>
+</html>
