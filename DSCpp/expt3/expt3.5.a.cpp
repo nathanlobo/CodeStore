@@ -1,32 +1,30 @@
-// Experiment 3.5a - Multiple inheritance
-#include <iostream> // Include input-output stream
+#include <iostream>
 #include <vector>
 using namespace std;
-// Base class 1: Person info
+// Base class 1
 class Person {
 protected:
     string name;
     int age;
 public:
-    void getPersonData(){ // Input person data
+    void getPersonData(){
         cout << "Enter Name: ";
         getline(cin,name);
         cout << "Enter Age: ";
         cin >> age;
         cin.ignore();
     }
-    void displayPersonData(){ // Display person data
+    void displayPersonData(){
         cout << "\n---Personal Info ---" << endl;
         cout << "Name: " << name << "\nAge: " << age << endl;
     }
 };
-
-//Base Class 2: Skills info
+//Base Class 2
 class Skills {
 protected:
     vector<string> skillList;
 public:
-    void getSkills(){ // Input skills
+    void getSkills(){
         int n;
         cout << "Enter number of skills: ";
         cin >> n;
@@ -37,27 +35,27 @@ public:
             getline(cin,skillList[i]);
         }
     }
-    void displaySkills() { // Display skills
+    void displaySkills() {
     cout << "--- Skills ---" << endl;
     for (size_t i = 0; i < skillList.size(); i++) {
       cout << (i + 1) << ". " << skillList[i] << endl;
     }
   }
 };
-// Base class 3: Benefits info
+// Base class 3
 class Benefits {
 protected:
   string healthInsurance;
   int leaveDays;
 public:
-    void getBenefits() { // Input benefits
+    void getBenefits() {
         cout << "Enter Health Insurance Plan: ";
         getline(cin, healthInsurance);
         cout << "Enter Number of Leave Days: ";
         cin >> leaveDays;
         cin.ignore();
     }
-    void displayBenefits() { // Display benefits
+    void displayBenefits() {
         cout << "--- Benefits ---" << endl;
         cout << "Health Insurance: " << healthInsurance << endl;
         cout << "Leave Days: " << leaveDays << endl;
@@ -68,12 +66,12 @@ class Employee : public Person, public Skills, public Benefits {
 private:
     int employeeID;
 public:
-    void getEmployeeData() { // Input employee ID
+    void getEmployeeData() {
         cout << "Enter Employee ID: ";
         cin >> employeeID;
         cin.ignore();
     }
-    void displayEmployeeData() { // Display all info
+    void displayEmployeeData() {
         cout << "\n=== Employee Profile ===" << endl;
         cout << "Employee ID: " << employeeID << endl;
         displayPersonData();
@@ -83,7 +81,7 @@ public:
 };
 // Main function
 int main() {
-    Employee e; // Create Employee object
+    Employee e;
     e.getPersonData();
     e.getSkills();
     e.getBenefits();

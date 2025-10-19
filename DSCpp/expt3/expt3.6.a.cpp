@@ -1,41 +1,40 @@
-
-#include <iostream> // Include input-output stream
+#include <iostream>
 using namespace std;
-// Base class for university
+// Base class
 class University {
 protected:
     string universityName;
 public:
-    void setUniversityDetails(string name) { // Set university name
+    void setUniversityDetails(string name) {
         universityName = name; }
-    void showUniversityDetails() { // Display university name
+    void showUniversityDetails() {
         cout<< "University Name: " << universityName << endl;
     }
 };
-// Department inherits University
+// Derived class 1
 class Department : public University {
 protected:
     string deptName;
     int totalStudents;
 public:
-    void setDepartmentDetails(string name, int students) { // Set dept info
+    void setDepartmentDetails(string name, int students) {
     deptName = name;
     totalStudents = students;
     }
-    void showDepartmentDetails() { // Display dept info
+    void showDepartmentDetails() {
         cout << "Department Name: "<< deptName << endl;
         cout << "Total Students: "<< totalStudents << endl;
     }
 };
 
-// Specialized Departments
+// Derived class 1.1 (Specialized Departments)
 class ElectronicsAndComputers: public Department {
     string hodName;
 public:
-    void setElectronicsDetails(string hod) { // Set HOD name
+    void setElectronicsDetails(string hod) {
         hodName = hod;
     }
-    void showElectronicsDetails() { // Display ECE dept info
+    void showElectronicsDetails() {
         cout << "--- Electronics & Computers Department ---"<< endl;
         showDepartmentDetails();
         cout << "HOD: " << hodName << endl;
@@ -45,10 +44,10 @@ public:
 class Mechanical: public Department {
     string labName;
 public:
-    void setMechanicalDetails(string lab) { // Set lab name
+    void setMechanicalDetails(string lab) {
         labName = lab;
     }
-    void showMechanicalDetails() { // Display Mech dept info
+    void showMechanicalDetails() {
         cout << "--- Mechanical Department ---" << endl;
         showDepartmentDetails();
         cout << "Lab: " << labName << endl;
@@ -58,34 +57,34 @@ public:
 class Computers : public Department {
     string projectName;
 public:
-    void setComputersDetails(string project) { // Set project name
+    void setComputersDetails(string project) {
         projectName = project;
     }
-    void showComputersDetails() { // Display Comp dept info
+    void showComputersDetails() {
         cout << "--- Computers Department ---" << endl;
         showDepartmentDetails();
         cout<< "Project: " << projectName << endl;
     }
 };
-// Library inherits University
+// Derived class 2
 class Library: public University {
     int totalBooks;
 public:
-    void setLibraryDetails(int books) { // Set total books
+    void setLibraryDetails(int books) {
         totalBooks = books;
     }
-    void showLibraryDetails() { // Display books
+    void showLibraryDetails() {
         cout << "Library Total Books: " << totalBooks << endl;
     }
 };
-// Hostel inherits University
+// Derived class 3
 class Hostel : public University {
     int totalRooms;
 public:
-    void setHostelDetails(int rooms) { // Set total rooms
+    void setHostelDetails(int rooms) {
         totalRooms = rooms;
     }
-    void showHostelDetails() { // Display rooms
+    void showHostelDetails() {
         cout << "Hostel Total Rooms: " << totalRooms << endl;
     }
 };

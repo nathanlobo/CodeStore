@@ -1,26 +1,22 @@
-// Experiment 3.3b - Protected members inheritance example with students and marks
-#include <iostream> // Include input-output stream
+#include <iostream>
 using namespace std;
-// Base class for student
 class Student {
 protected:
-    int marks; // Protected member for marks
+    int marks;
 public:
-    void setMarks(int m){ // Set marks
+    void setMarks(int m){
         marks = m;
     }
 };
-
-// Marks publicly inherits Student
 class Marks : public Student {
 public:
-    void displayMarks(){ // Display marks
+    void displayMarks(){
         cout << "Marks obtained: " << marks << endl;
     }
 };
 int main(){
-    Marks m; // Create Marks object
-    m.setMarks(85); // Set marks
-    m.displayMarks(); // Show marks
+    Marks m;
+    m.setMarks(85);
+    m.displayMarks();
     return 0;
 }

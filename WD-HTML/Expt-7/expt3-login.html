@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - 25LEC07</title>
+	<style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("bg_img1.jpg");
+            background-repeat: no-repeat; /* Prevents image repetition */
+            background-size: cover; /* Makes the image cover the entire area */
+            background-position: center; /* Centers the image */
+        }
+        .login-container {
+            background-color: white;
+            border-radius: 10px;
+            border: 3px solid #696969; 
+            padding: 20px; 
+            text-align: center; 
+            width: 200px; 
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #808080;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="password"] {
+            padding: 0.75rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        button {
+            padding: 0.75rem;
+            background-color: #373737;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #1c1d1d;
+        }
+        .password-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        .password-options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            color: #555;
+        }
+        .password-options input[type="checkbox"] {
+            margin-right: 0.5rem;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        .forgot-password {
+            margin-top: 0.50rem;
+            color: #363737;
+            text-decoration: none;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+            color: black;
+            font-size: 0.93rem;
+        }
+        .signup-option {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .signup-link {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: text-decoration 0.3s ease;
+        }
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+	</style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>LOBO's Development</h2>
+        <form action="#" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" required />
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required />
+            <button type="submit">Login</button>
+            <div class="password-options">
+                <a href="" class="forgot-password">Forgot password?</a>
+            </div>
+            <div class="signup-option">
+                Don't have an account? <a href="./expt3-register.html" class="signup-link">Register</a>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

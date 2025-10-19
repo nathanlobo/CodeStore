@@ -1,27 +1,24 @@
-// Experiment 3.1b Public inheritance example with employee and programmer
-#include <iostream> // Include input-output stream
+#include <iostream>
 using namespace std;
-// Base class for employee details
 class Employee {
     public:
-    string name; // Employee name
-    int empID;   // Employee ID
-    void display() { // Display employee details
+    string name;
+    int empID;
+    void display() {
         cout << "Name: "<<name << "\nEmployee ID: " << empID <<endl;
     }
 };
-// Derived class for programmer, inherits Employee
 class Programmer: public Employee {
 public:
-    void showSkills() { // Display programmer skills
+    void showSkills() {
         cout << "Skills: C, C++, Python, HTML, PHP" << endl;
     }
 };
 int main() {
-    Programmer p; // Create Programmer object
+    Programmer p;
     p.name = "Nathan";
     p.empID = 22;
-    p.display(); // Show employee details
-    p.showSkills(); // Show programmer skills
+    p.display();
+    p.showSkills();
     return 0;
 }

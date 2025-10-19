@@ -1,23 +1,20 @@
-// Experiment 3.2a - Single inheritance in private mode
-#include <iostream> // Include input-output stream
+#include <iostream>
 using namespace std;
-// Base class representing a vehicle
 class Vehicle {
     public:
-    void start() { // Function to start the vehicle
+    void start() {
         cout << "Vehicle started." << endl;
     }
 };
-// Car privately inherits Vehicle
 class Car : private Vehicle {
     public:
-    void drive() { // Drive function calls start (from Vehicle)
+    void drive() {
         start();
         cout << "Car is being driven." << endl;
     }
 };
 int main() {
-    Car c; // Create Car object
-    c.drive(); // Call drive (which calls start)
+    Car c;
+    c.drive();
     return 0;
 }

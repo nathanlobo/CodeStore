@@ -1,33 +1,33 @@
-#include <iostream> // Include input-output stream
+#include <iostream>
 using namespace std;
-// Base Class for university info
+// Base Class
 class University {
 protected:
 	string universityName;
 	string location;
 public:
-	void setUniversityDetails(string name, string loc) { // Set university info
+	void setUniversityDetails(string name, string loc) {
 		universityName = name;
 		location = loc;
 	}
-	void displayUniversityDetails() { // Display university info
+	void displayUniversityDetails() {
 		cout << "University Name: " << universityName << endl;
 		cout << "Location: " << location << endl;
 	}
 };
-// Department inherits University
+// Derived Class 1: Department (inherits from University)
 class Department: public University {
 protected:
 	string departmentName;
 	string headOfDepartment;
 	int numFaculty;
 public:
-	void setDepartmentDetails(string deptName, string head, int faculty) { // Set dept info
+	void setDepartmentDetails(string deptName, string head, int faculty) {
 		departmentName = deptName;
 		headOfDepartment = head;
 		numFaculty = faculty;
 	}
-	void displayDepartmentDetails() { // Display dept info
+	void displayDepartmentDetails() {
 		cout << "Department: " << departmentName << endl;
 		cout << "Head: " << headOfDepartment << endl;
 		cout << "Number of Faculty: " << numFaculty << endl;
@@ -36,35 +36,35 @@ public:
 // Specialized Departments (Hierarchical Inheritance)
 class ElectronicsAndComputers: public Department {
 public:
-	void displaySpecialDetails() { // ECE dept focus
+	void displaySpecialDetails() {
 		cout << "Electronics & Computers Dept focuses on embedded systems and AI.\n";
 	}
 };
 
 class Mechanical : public Department {
 public:
-	void displaySpecialDetails() { // Mech dept focus
+	void displaySpecialDetails() {
 		cout << "Mechanical Dept focuses on robotics and thermal systems.\n";
 	}
 };
 
 class Computers : public Department {
 public:
-	void displaySpecialDetails() { // Comp dept focus
+	void displaySpecialDetails() {
 		cout << "Computers Dept focuses on software engineering and ML.\n";
 	}
 };
-// Research Center base class
+// Another Base Class: Research Center
 class ResearchCenter {
 protected:
 	string researchArea;
 	int numProjects;
 public:
-	void setResearchDetails(string area, int projects) { // Set research info
+	void setResearchDetails(string area, int projects) {
 		researchArea = area;
 		numProjects = projects;
 	}
-	void displayResearchDetails() { // Display research info
+	void displayResearchDetails() {
 		cout << "Research Area: " << researchArea << endl;
 		cout << "Number of Projects: " << numProjects << endl;
 	}
@@ -75,11 +75,11 @@ private:
 	double funding;
 	string ongoingResearch;
 public:
-	void setResearchDeptDetails(double fund, string research) { // Set funding & research
+	void setResearchDeptDetails(double fund, string research) {
 		funding = fund;
 		ongoingResearch = research;
 	}
-	void displayResearchDeptDetails() { // Display all research dept info
+	void displayResearchDeptDetails() {
 		displayUniversityDetails();
 		displayDepartmentDetails();
 		displayResearchDetails();

@@ -1,24 +1,20 @@
-// Experiment 3.2b - Private inheritance example with bank and account
-#include <iostream> // Include input-output stream
+#include <iostream>
 using namespace std;
-// Base class for bank details
 class Bank {
     public:
-    void bankDetails() { // Display bank info
+    void bankDetails() {
         cout << "Bank: ABC Bank\nBranch: Main Branch" << endl;
     }
 };
-
-// Account privately inherits Bank
 class Account : private Bank {
     public:
-    void createAccount() { // Calls bankDetails and shows account creation
+    void createAccount() {
         bankDetails();
         cout << "Account created successfully." << endl;
     }
 };
 int main() {
-    Account a; // Create Account object
-    a.createAccount(); // Create account and show details
+    Account a;
+    a.createAccount();
     return 0;
 }

@@ -1,38 +1,36 @@
-// Experiment 3.4a - Multilevel inheritance
-#include <iostream> // Include input-output stream
+#include <iostream>
 using namespace std;
-// Base class for student info
+// Base class
 class Student {
     protected:
     int rollNo;
     string name;
     public:
-    void getStudentData() { // Input student data
+    void getStudentData() {
         cout << "Enter Roll Number: ";
         cin >> rollNo;
         cin.ignore(); // to clear buffer
         cout << "Enter Name: ";
         getline(cin, name);
     }
-    void displayStudentData() { // Display student data
+    void displayStudentData() {
         cout << "\n--- Student Details ---" << endl;
         cout << "Roll Number: " << rollNo << endl;
         cout << "Name: " << name << endl;
     }
 };
-
-// Academic inherits Student
+// Derived class from Student
 class Academic : public Student {
     protected:
     int marks[3];
     public:
-    void getMarks() { // Input marks
+    void getMarks() {
         cout << "Enter marks of 3 subjects: ";
         for (int i = 0; i < 3; i++) {
             cin >> marks[i];
         }
     }
-    void displayMarks() { // Display marks
+    void displayMarks() {
         cout << "Marks: ";
         for (int i = 0; i < 3; i++) {
             cout << marks[i] << " ";
@@ -40,14 +38,14 @@ class Academic : public Student {
         cout << endl;
     }
 };
-// Result inherits Academic
+// Derived class from Academic
 class Result : public Academic {
     private:
     int total;
     float percentage;
 
     public:
-    void calculateResult() { // Calculate total and percentage
+    void calculateResult() {
         total = 0;
         for (int i = 0; i < 3; i++) {
             total += marks[i];
@@ -55,14 +53,14 @@ class Result : public Academic {
         percentage = (float)total / 3;
     }
 
-    void displayResult() { // Display result
+    void displayResult() {
         cout << "Total Marks: " << total << endl;
         cout << "Percentage: " << percentage << "%" << endl;
     }
 };
 //Main function
 int main(){
-    Result r; // Create Result object
+    Result r;
     r.getStudentData();
     r.getMarks();
     r.calculateResult();
