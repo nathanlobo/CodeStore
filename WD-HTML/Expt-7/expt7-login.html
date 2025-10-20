@@ -3,242 +3,241 @@
     <title>Login Form Validation</title>
     <style>
         /* Layout & background */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-image: url("./bg.jpg");
-            background-repeat: no-repeat;
+        body { /* Styles for body element */
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif; /* Set font family */
+            display: flex; /* Use flexbox layout */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh; /* Set minimum height to full viewport height */
+            background-image: url("./bg.jpg"); /* Set background image */
+            background-repeat: no-repeat; /* Prevent background image repetition */
         }
 
         /* Card */
-        .login-container {
-            background: #fff;
-            border: 3px solid #696969;
-            border-radius: 30px;
-            padding: 3rem 4rem;
-            width: 350px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .login-container { /* Styles for login container card */
+            background: #fff; /* Set white background */
+            border: 3px solid #696969; /* Add gray border */
+            border-radius: 30px; /* Round the corners */
+            padding: 3rem 4rem; /* Add padding inside container */
+            width: 350px; /* Set fixed width */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow effect */
         }
 
-        h2 {
-            margin: 0 0 1.5rem;
-            color: #808080;
-            text-align: center;
+        h2 { /* Styles for h2 heading */
+            margin: 0 0 1.5rem; /* Set margin: top 0, bottom 1.5rem */
+            color: #808080; /* Set gray color */
+            text-align: center; /* Center align text */
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
+        form { /* Styles for form element */
+            display: flex; /* Use flexbox layout */
+            flex-direction: column; /* Stack items vertically */
         }
 
-        label {
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #555;
+        label { /* Styles for label elements */
+            margin-bottom: 0.5rem; /* Add bottom margin */
+            font-weight: 600; /* Set bold font weight */
+            color: #555; /* Set dark gray color */
         }
 
         input[type="text"],
-        input[type="password"] {
-            padding: 0.75rem;
-            margin-bottom: 1.25rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+        input[type="password"] { /* Styles for text and password inputs */
+            padding: 0.75rem; /* Add padding inside input */
+            margin-bottom: 1.25rem; /* Add bottom margin */
+            border: 1px solid #ccc; /* Add light gray border */
+            border-radius: 5px; /* Round the corners */
+            font-size: 1rem; /* Set font size */
+            transition: border-color 0.3s ease; /* Smooth border color transition */
         }
         input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: #007bff;
-            outline: none;
+        input[type="password"]:focus { /* Styles for focused inputs */
+            border-color: #007bff; /* Change border to blue on focus */
+            outline: none; /* Remove default outline */
         }
 
-        button {
-            padding: 0.75rem;
-            background-color: #373737;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        button { /* Styles for button element */
+            padding: 0.75rem; /* Add padding inside button */
+            background-color: #373737; /* Set dark gray background */
+            color: #fff; /* Set white text color */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Round the corners */
+            font-size: 1rem; /* Set font size */
+            cursor: pointer; /* Show pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
         }
-        button:hover {
-            background-color: #1c1d1d;
+        button:hover { /* Styles for button on hover */
+            background-color: #1c1d1d; /* Darken background on hover */
         }
 
         /* Links */
-        .forgot-password {
-            display: inline-block;
-            margin-top: 0.5rem;
-            color: #363737;
-            padding-right: 6px;
-            font-size: 0.95rem;
+        .forgot-password { /* Styles for forgot password link */
+            display: inline-block; /* Display as inline block */
+            margin-top: 0.5rem; /* Add top margin */
+            color: #363737; /* Set dark gray color */
+            padding-right: 6px; /* Add right padding */
+            font-size: 0.95rem; /* Set font size */
         }
-        .forgot-password:hover {
-            text-decoration: underline;
-            color: #000;
+        .forgot-password:hover { /* Styles for forgot password link on hover */
+            text-decoration: underline; /* Add underline on hover */
+            color: #000; /* Change to black on hover */
         }
 
-        .signup-option {
-            margin-top: 1.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #555;
+        .signup-option { /* Styles for signup option text */
+            margin-top: 1.5rem; /* Add top margin */
+            text-align: center; /* Center align text */
+            font-size: 0.9rem; /* Set font size */
+            color: #555; /* Set dark gray color */
         }
-        .signup-link {
-            color: #000;
-            font-weight: 600;
-            cursor: pointer;
+        .signup-link { /* Styles for signup link */
+            color: #000; /* Set black color */
+            font-weight: 600; /* Set bold font weight */
+            cursor: pointer; /* Show pointer cursor */
         }
-        .signup-link:hover {
-            text-decoration: none;
+        .signup-link:hover { /* Styles for signup link on hover */
+            text-decoration: none; /* Remove underline on hover */
         }
 
         /* Error message styling */
-        .error-message {
-            color: #dc3545;
-            font-size: 0.85rem;
-            margin-top: -1rem;
-            margin-bottom: 1rem;
-            text-align: left;
-            display: none;
+        .error-message { /* Styles for error messages */
+            color: #dc3545; /* Set red color */
+            font-size: 0.85rem; /* Set smaller font size */
+            margin-top: -1rem; /* Add negative top margin */
+            margin-bottom: 1rem; /* Add bottom margin */
+            text-align: left; /* Align text to left */
+            display: none; /* Hide by default */
         }
-        .error-message.show {
-            display: block;
+        .error-message.show { /* Styles for error message when shown */
+            display: block; /* Display as block when 'show' class is added */
         }
-        input.error {
-            border-color: #dc3545;
+        input.error { /* Styles for input with error */
+            border-color: #dc3545; /* Set red border color */
         }
     </style>
-    
 </head>
 <body>
-    <div class="login-container">
-        <h2>LOBO's Development</h2>
-        <form id="loginForm" action="#" method="post">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter username"/>
-            <span class="error-message" id="usernameError"></span>
+    <div class="login-container"> <!-- Main login container -->
+        <h2>LOBO's Development</h2> <!-- Heading -->
+        <form id="loginForm" action="#" method="post"> <!-- Login form -->
+            <label for="username">Username</label> <!-- Username label -->
+            <input type="text" id="username" name="username" placeholder="Enter username"/> <!-- Username input field -->
+            <span class="error-message" id="usernameError"></span> <!-- Username error message span -->
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter password"/>
-            <span class="error-message" id="passwordError"></span>
+            <label for="password">Password</label> <!-- Password label -->
+            <input type="password" id="password" name="password" placeholder="Enter password"/> <!-- Password input field -->
+            <span class="error-message" id="passwordError"></span> <!-- Password error message span -->
 
-            <button type="submit">Login</button>
+            <button type="submit">Login</button> <!-- Submit button -->
 
-            <a href="#" class="forgot-password">Forgot password?</a>
+            <a href="#" class="forgot-password">Forgot password?</a> <!-- Forgot password link -->
 
-            <div class="signup-option">
-                Don't have an account? <a href="./expt7-register.html" class="signup-link">Register</a>
-            </div>
+            <div class="signup-option"> <!-- Signup option section -->
+                Don't have an account? <a href="./expt7-register.html" class="signup-link">Register</a> <!-- Register link -->
+            </div> <!-- End signup option section -->
         </form>
-    </div>
+    </div> <!-- End login container -->
 
     <script>
         // Get form and input elements
-        const loginForm = document.getElementById('loginForm');
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
-        const usernameError = document.getElementById('usernameError');
-        const passwordError = document.getElementById('passwordError');
+        const loginForm = document.getElementById('loginForm'); // Get login form element by ID
+        const usernameInput = document.getElementById('username'); // Get username input element by ID
+        const passwordInput = document.getElementById('password'); // Get password input element by ID
+        const usernameError = document.getElementById('usernameError'); // Get username error span element by ID
+        const passwordError = document.getElementById('passwordError'); // Get password error span element by ID
 
         // Validation functions
-        function validateUsername() {
-            const username = usernameInput.value.trim();
+        function validateUsername() { // Function to validate username
+            const username = usernameInput.value.trim(); // Get username value and remove spaces at ends
             // Clear previous error
-            usernameError.classList.remove('show');
-            usernameInput.classList.remove('error');
-            if (username === '') {
-                showError(usernameInput, usernameError, 'Username is required');
-                return false;
+            usernameError.classList.remove('show'); // Remove 'show' class to hide error message
+            usernameInput.classList.remove('error'); // Remove 'error' class to clear red border styling
+            if (username === '') { // Check if username is empty
+                showError(usernameInput, usernameError, 'Username is required'); // Show error message
+                return false; // Return false
             }
-            if (username.length < 3) {
-                showError(usernameInput, usernameError, 'Username must be at least 3 characters');
-                return false;
+            if (username.length < 3) { // Check if username length is less than 3
+                showError(usernameInput, usernameError, 'Username must be at least 3 characters'); // Show error message
+                return false; // Return false
             }
-            if (username.length > 20) {
-                showError(usernameInput, usernameError, 'Username must not exceed 20 characters');
-                return false;
+            if (username.length > 20) { // Check if username length is greater than 20
+                showError(usernameInput, usernameError, 'Username must not exceed 20 characters'); // Show error message
+                return false; // Return false
             }
             // Check for valid characters (alphanumeric and underscore)
-            const usernameRegex = /^[a-zA-Z0-9_]+$/;
-            if (!usernameRegex.test(username)) {
-                showError(usernameInput, usernameError, 'Username can only contain letters, numbers, and underscores');
-                return false;
+            const usernameRegex = /^[a-zA-Z0-9_]+$/; // char check letters (small & capital), numbers, underscore /^ indicates start and $/ indicates end of string 
+            if (!usernameRegex.test(username)) { // If username does not match regex
+                showError(usernameInput, usernameError, 'Username can only contain letters, numbers, and underscores'); // Show error message
+                return false; // Return false
             }
-            return true;
+            return true; // Return true if all validations pass
         }
 
-        function validatePassword() {
-            const password = passwordInput.value;
+        function validatePassword() { // Function to validate password
+            const password = passwordInput.value; // Get password value
             // Clear previous error
-            passwordError.classList.remove('show');
-            passwordInput.classList.remove('error');
-            if (password === '') {
-                showError(passwordInput, passwordError, 'Password is required');
-                return false;
+            passwordError.classList.remove('show'); // Remove 'show' class to hide error message
+            passwordInput.classList.remove('error'); // Remove 'error' class to clear red border styling
+            if (password === '') { // Check if password is empty
+                showError(passwordInput, passwordError, 'Password is required'); // Show error message
+                return false; // Return false
             }
-            if (password.length < 6) {
-                showError(passwordInput, passwordError, 'Password must be at least 6 characters');
-                return false;
+            if (password.length < 6) { // Check if password length is less than 6
+                showError(passwordInput, passwordError, 'Password must be at least 6 characters'); // Show error message
+                return false; // Return false
             }
-            if (password.length > 16) {
-                showError(passwordInput, passwordError, 'Password must not exceed 50 characters');
-                return false;
+            if (password.length > 16) { // Check if password length is greater than 16
+                showError(passwordInput, passwordError, 'Password must not exceed 50 characters'); // Show error message
+                return false; // Return false
             }
-            return true;
+            return true; // Return true if all validations pass
         }
 
-        function showError(inputElement, errorElement, message) {
+        function showError(inputElement, errorElement, message) { // Function to display error message
             // Add 'error' class to input field for red border styling
-            inputElement.classList.add('error');
+            inputElement.classList.add('error'); // Add 'error' class to input element
             // Set the error message text to display
-            errorElement.textContent = message;
+            errorElement.textContent = message; // Set error message text
             // Add 'show' class to make the error message visible
-            errorElement.classList.add('show');
+            errorElement.classList.add('show'); // Add 'show' class to error element
         }
 
         // Real-time validation on input
-        usernameInput.addEventListener('input', function() {
-            if (usernameInput.value.trim() !== '') {
-                validateUsername();
-            } else {
-                usernameError.classList.remove('show');
-                usernameInput.classList.remove('error');
+        usernameInput.addEventListener('input', function() { // Add input event listener to username field
+            if (usernameInput.value.trim() !== '') { // Check if username is not empty
+                validateUsername(); // Validate username
+            } else { // If username is empty
+                usernameError.classList.remove('show'); // Hide error message
+                usernameInput.classList.remove('error'); // Remove error styling
             }
         });
 
-        passwordInput.addEventListener('input', function() {
-            if (this.value !== '') {
-                validatePassword();
-            } else {
-                passwordError.classList.remove('show');
-                passwordInput.classList.remove('error');
+        passwordInput.addEventListener('input', function() { // Add input event listener to password field
+            if (this.value !== '') { // Check if password is not empty
+                validatePassword(); // Validate password
+            } else { // If password is empty
+                passwordError.classList.remove('show'); // Hide error message
+                passwordInput.classList.remove('error'); // Remove error styling
             }
         });
 
         // Form submission validation
-        loginForm.addEventListener('submit', function(e) {
+        loginForm.addEventListener('submit', function(e) { // Add submit event listener to form
             // Prevent default form submission (stops page reload)
-            e.preventDefault();
-            if (validateUsername() && validatePassword()) {
-                alert('Login successful! ✓\nUsername: ' + usernameInput.value.trim());
+            e.preventDefault(); // Prevent default form submission behavior
+            if (validateUsername() && validatePassword()) { // If both validations pass
+                alert('Login successful! ✓\nUsername: ' + usernameInput.value.trim()); // Show success alert
             }
         });
 
         // Clear error on focus
-        usernameInput.addEventListener('focus', function() {
-            usernameError.classList.remove('show');
-            usernameInput.classList.remove('error');
+        usernameInput.addEventListener('focus', function() { // Add focus event listener to username field
+            usernameError.classList.remove('show'); // Hide error message on focus
+            usernameInput.classList.remove('error'); // Remove error styling on focus
         });
 
-        passwordInput.addEventListener('focus', function() {
-            passwordError.classList.remove('show');
-            passwordInput.classList.remove('error');
+        passwordInput.addEventListener('focus', function() { // Add focus event listener to password field
+            passwordError.classList.remove('show'); // Hide error message on focus
+            passwordInput.classList.remove('error'); // Remove error styling on focus
         });
     </script>
 </body>
