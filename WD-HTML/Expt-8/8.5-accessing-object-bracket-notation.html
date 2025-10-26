@@ -6,9 +6,10 @@
     <script>
         const a = '{"name":"Nathan", "age":21, "branch":"ECOMP"}';
         const b = JSON.parse(a);
-        document.write("Name is ",b['name']);
-        document.write("<br>Age is ",b['age']);
-        document.write("<br>Branch is ",b['branch']);
+        for (var x in b){
+            document.write("<br>"+x);
+            document.write(" is "+b[x])
+        }
     </script>
 </body>
 </html>
