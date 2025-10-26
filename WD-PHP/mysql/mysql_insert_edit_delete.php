@@ -28,7 +28,7 @@ $result = mysqli_query($conn,"select * from students order by id desc");
 <!DOCTYPE html>
 <html>
 <head>
-<title>25LEC07 - Insert & View</title>
+<title>Insert, View, Update, Delete</title>
 </head>
 <body>
     <h2>Insert Student</h2>

@@ -19,7 +19,7 @@ $result = $conn->query("SELECT * FROM students");
 <!DOCTYPE html>
 <html>
 <head>
-<title>Update Student</title>
+<title>Expt 5 - Update Student</title>
 </head>
 <body>
     <h2>Student Records</h2>
