@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head><title>AJAX Example</title></head>
+    <body>
+        <h2>AJAX Example</h2>
+        <button onclick="loadData()">Get Message</button>
+        <p id="result"></p>
+        <script>
+            function loadData() {
+                var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object
+                xhr.onload = function() { // Define what happens when the response is ready
+                    if (xhr.status == 200) {
+                        document.getElementById("result").innerHTML = xhr.responseText;
+                    }
+                };
+                xhr.open("GET", "data.php", true); // Initialize the request
+                xhr.send(); // Send the request
+            }
+        </script>
+    </body>
+</html>
