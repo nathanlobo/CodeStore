@@ -2,55 +2,6 @@
 <html>
 <head>
 <title>Expt 1a - HTML Basics</title>
-<!-- html2canvas + screenshot message listener (paste before </body>) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-  // Configure allowed parent origins (exact origin: scheme + host + port)
-  const ALLOWED_PARENTS = [
-    'http://127.0.0.1:5500',
-    'http://127.0.0.1:5500/output.html',
-    'http://localhost:5500',
-    'https://nathanlobo.github.io'
-  ];
-
-  // Listen for screenshot requests from the parent
-  window.addEventListener('message', async (e) => {
-    // Only accept requests from configured parent origins
-    if (!ALLOWED_PARENTS.includes(e.origin)) return;
-
-    const msg = e.data || {};
-    if (msg.type !== 'request-iframe-screenshot') return;
-
-    // Parent may request a backgroundColor (e.g. '#ffffff' or '#000000')
-    const backgroundColor = (typeof msg.backgroundColor !== 'undefined') ? msg.backgroundColor : null;
-
-    try {
-      // Wait briefly if html2canvas hasn't finished loading
-      if (!window.html2canvas) {
-        await new Promise(r => setTimeout(r, 250));
-        if (!window.html2canvas) {
-          window.parent.postMessage({ type: 'iframe-screenshot-response', dataUrl: null, error: 'html2canvas-not-loaded' }, e.origin);
-          return;
-        }
-      }
-
-      // Capture the full document (documentElement) for best results
-      const target = document.documentElement || document.body;
-      const canvas = await html2canvas(target, {
-        backgroundColor: backgroundColor, // pass null to keep transparency
-        scale: 2,
-        useCORS: true
-      });
-
-      const dataUrl = canvas.toDataURL('image/png');
-
-      // Send the dataURL back to the requesting parent origin only
-      window.parent.postMessage({ type: 'iframe-screenshot-response', dataUrl }, e.origin);
-    } catch (err) {
-      window.parent.postMessage({ type: 'iframe-screenshot-response', dataUrl: null, error: err && err.message }, e.origin);
-    }
-  }, false);
-</script>
 </head>
 <body>
 <p>My Name is Nathan Lobo, I like to listen to music.</p>
