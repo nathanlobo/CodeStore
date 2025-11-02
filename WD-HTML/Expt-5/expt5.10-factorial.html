@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Factorial</title></head>
+<body>
+    <button onclick="factorial()">Click here to Calculate Factorial</button>
+</body>
+<script>
+    function factorial() {
+        var f=1;
+        var i;
+        var a = parseInt(prompt("Enter the number"));
+        for(i=1;i<=a;i++){
+        f=f*i; }
+        document.write("Factorial of " + a+  " is "+ f);
+    }
+</script>
+</html>

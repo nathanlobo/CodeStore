@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head><title>Power of Number</title></head>
+<body>
+<button onclick="pow()">Click here to calculate power</button>
+</body>
+<script>
+    function pow(){
+        var i;
+        var p=1;
+        var a = parseInt(prompt("Enter the Base number"));
+        var b = parseInt(prompt("Enter the Power to be raised to"));
+        for(i=1;i<=b;i++){ p*=a; }
+        document.write(a + "^" + b +" is "+p);
+    }
+</script></html>

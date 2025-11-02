@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html><head><title>Matrix Multiplication</title></head>
+<body><script>
+    var rowsA = parseInt(prompt("How many Rows in Matrix A?"));
+    var colsA = parseInt(prompt("How many Columns in Matrix A?"));
+    var rowsB = parseInt(prompt("How many Rows in Matrix B?"));
+    var colsB = parseInt(prompt("How many Columns in Matrix B?"));
+    if(colsA != rowsB){ alert("Matrix Multiplication Not Possible."); }
+    else{
+        var a = new Array(rowsA);
+        for(var i=0; i<rowsA; i++){ a[i] = new Array(colsA);}
+        var b = new Array (rowsB);
+        for(var i=0; i<rowsB; i++){ b[i] = new Array(colsB); }
+        var c = new Array (rowsA);
+        for(var i=0; i<rowsA; i++){ c[i] = new Array(colsB); }
+        alert("Enter Elements of Matrix A");
+        for(var i=0;i<rowsA;i++){
+            for(var j=0;j<colsA;j++) {
+                a[i][j]=parseInt(prompt("Matrix A\nEnter Element "+(j+1)+" of Row"+(i+1))); }
+        }
+        alert("Enter Elements of Matrix B");
+        for(var i=0; i<rowsB; i++){
+            for(var j=0; j<colsB; j++) {
+                b[i][j]=parseInt(prompt("Matrix B\nEnter Element "+(j+1)+" of Row"+(i+1))); }
+        }
+        for(var i=0; i<rowsA; i++){
+            for(var j=0; j<colsB; j++){
+                c[i][j] = 0;
+                for(var k=0; k<colsA; k++){
+                    c[i][j]=c[i][j]+a[i][k]*b[k][j];
+                }}}
+        document.write("Matrix A<br>");
+        for(var i=0;i<rowsA;i++){
+            for(var j=0;j<colsA;j++) { document.write(" "+a[i][j]); }
+            document.write("<br>"); }
+        document.write("<br>Matrix B<br>");
+        for(var i=0;i<rowsB;i++){
+            for(var j=0;j<colsB;j++) { document.write(" "+b[i][j]); }
+            document.write("<br>"); }
+        document.write("<br>Product of the 2 Matrices is:<br>");
+        for(var i=0;i<rowsA;i++){
+            for(var j=0;j<colsB;j++) { document.write(" "+c[i][j]); }
+            document.write("<br>");
+        } 
+    }
+</script></body></html>
