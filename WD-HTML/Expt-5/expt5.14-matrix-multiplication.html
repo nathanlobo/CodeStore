@@ -13,12 +13,10 @@
         for(var i=0; i<rowsB; i++){ b[i] = new Array(colsB); }
         var c = new Array (rowsA);
         for(var i=0; i<rowsA; i++){ c[i] = new Array(colsB); }
-        alert("Enter Elements of Matrix A");
         for(var i=0;i<rowsA;i++){
             for(var j=0;j<colsA;j++) {
                 a[i][j]=parseInt(prompt("Matrix A\nEnter Element "+(j+1)+" of Row"+(i+1))); }
         }
-        alert("Enter Elements of Matrix B");
         for(var i=0; i<rowsB; i++){
             for(var j=0; j<colsB; j++) {
                 b[i][j]=parseInt(prompt("Matrix B\nEnter Element "+(j+1)+" of Row"+(i+1))); }
