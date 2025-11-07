@@ -1,5 +1,3 @@
-// C++ program to implement Bubble Sort algorithm on the given array
-
 #include <iostream>
 using namespace std;
 

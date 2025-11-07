@@ -29,7 +29,7 @@ void transferFunds(account& from, account& to, double amount) {
 }
 int main() {
     account acc1("Nathan", 1000);
-    account acc2("Zane", 500);
+    account acc2("Mr. Lobo", 500);
     transferFunds(acc1, acc2, 300);
     transferFunds(acc2, acc1, 900);
     acc1.display();
