@@ -1,0 +1,248 @@
+<!DOCTYPE html><html><head>
+    <title>Registration Form Validation</title>
+    <style>
+        body {background:url("./bg.jpg") center/cover no-repeat fixed;margin:0;padding:0}
+        .container { font-family:Arial,sans-serif;max-width:600px;margin:40px auto;background:#fff;
+                     padding:20px 30px;box-shadow:0 4px 8px rgba(0,0,0,0.1);border-radius:20px}
+        h2 {margin-bottom:10px}
+        label {display:block;margin-top:15px;margin-bottom:5px;font-weight:bold}
+        input[type="text"],input[type="password"],input[type="email"],input[type="date"],input[type="tel"],input[type="file"],select,textarea {
+            width:100%;padding:8px;margin-bottom:4px;border-radius:4px;border:1px solid #ccc;box-sizing:border-box }
+        input[type="radio"],input[type="checkbox"] {margin-right:8px}
+        .signup-option {text-align:center;font-size:0.9em}
+        .signup-option a {color:#383838;text-decoration:underline}
+        .signup-option a:hover {text-decoration:none}
+        .btn {height:35px}
+        input[type="submit"] {margin-top:5px;float:right;padding:10px 25px;border:none;
+                              border-radius:8px;cursor:pointer;background:#000;color:#fff;font-size:1em}
+        input[type="submit"]:hover {opacity:0.8}
+        .error-message {color:#dc3545;font-size:0.85rem;margin-top:-4px;margin-bottom:8px;display:none}
+        .error-message.show {display:block}
+        input.error,select.error,textarea.error {border-color:#dc3545}
+    </style>
+</head><body>
+<div class="container"> <!-- Main container -->
+    <h2 style="text-align:center">Register Your Account</h2> <!-- Heading with inline style -->
+    <div class="signup-option"> <!-- Signup option section -->
+        Already have an account? <a href="./expt7-login-v2.html">Login</a> <!-- Login link -->
+    </div> <!-- End signup option section -->
+    <form id="registrationForm"> <!-- Registration form -->
+        <label>Name</label> <!-- Name label -->
+        <input type="text" id="fname" placeholder="Enter your Name" autofocus autocomplete="name"> <!-- Name input field -->
+        <span class="error-message" id="fnameError"></span> <!-- Name error message span -->
+        <label>Username</label> <!-- Username label -->
+        <input type="text" id="username" name="username" placeholder="Choose your username"> <!-- Username input field -->
+        <span class="error-message" id="usernameError"></span> <!-- Username error message span -->
+        <label>Email</label> <!-- Email label -->
+        <input type="email" id="email" name="email" size="16" placeholder="Enter your Email"> <!-- Email input field -->
+        <span class="error-message" id="emailError"></span> <!-- Email error message span -->
+        <label>Password</label> <!-- Password label -->
+        <input type="password" id="password" name="password" maxlength="16" placeholder="Enter Password"> <!-- Password input field -->
+        <span class="error-message" id="passwordError"></span> <!-- Password error message span -->
+        <label>Confirm Password</label> <!-- Confirm password label -->
+        <input type="password" id="confirmPassword" name="confirmPassword" maxlength="16" placeholder="Enter Password Again">
+        <span class="error-message" id="confirmPasswordError"></span> <!-- Confirm password error message span -->
+        <label>Phone Number</label> <!-- Phone number label -->
+        <input type="tel" id="phone" placeholder="Enter Phone number"> <!-- Phone input field -->
+        <span class="error-message" id="phoneError"></span> <!-- Phone error message span -->
+        <label>Select your Branch</label> <!-- Branch label -->
+        <div> <!-- Branch radio buttons container -->
+            <input type="radio" id="ece" name="branch" value="Electronics" style="accent-color:black">Electronics & Computer Engg<br>
+            <input type="radio" id="mech" name="branch" value="Mechanical" style="accent-color:black">Mechanical & Automation Engg<br>
+            <input type="radio" id="comp" name="branch" value="Computer" style="accent-color:black">Computer Engg
+        </div> <!-- End branch container -->
+        <span class="error-message" id="branchError"></span> <!-- Branch error message span -->
+        <label>Languages Known</label> <!-- Languages label -->
+        <div> <!-- Languages checkboxes container -->
+            <input type="checkbox" id="e" name="eng" value="english" style="accent-color:black">English<br>
+            <input type="checkbox" id="m" name="mar" value="marathi" style="accent-color:black">Marathi<br>
+            <input type="checkbox" id="k" name="kon" value="konkani" style="accent-color:black">Konkani
+        </div> <!-- End languages container -->
+        <span class="error-message" id="languageError"></span> <!-- Languages error message span -->
+        <label>Choose your Taluka</label> <!-- Taluka label -->
+        <select size="1" id="taluka" name="taluka"> <!-- Taluka dropdown select -->
+            <option value="">Select a Taluka</option> <!-- Default placeholder option -->
+            <option value="Bardez">Bardez</option> <!-- Bardez option -->
+            <option value="Bicholim">Bicholim</option> <!-- Bicholim option -->
+            <option value="Canacona">Canacona</option> <!-- Canacona option -->
+            <option value="Dharbandora">Dharbandora</option> <!-- Dharbandora option -->
+            <option value="Mormugao">Mormugao</option> <!-- Mormugao option -->
+            <option value="Pernem">Pernem</option> <!-- Pernem option -->
+            <option value="Ponda">Ponda</option> <!-- Ponda option -->
+            <option value="Quepem">Quepem</option> <!-- Quepem option -->
+            <option value="Salcete">Salcete</option> <!-- Salcete option -->
+            <option value="Sanguem">Sanguem</option> <!-- Sanguem option -->
+            <option value="Sattari">Sattari</option> <!-- Sattari option -->
+            <option value="Tiswadi">Tiswadi</option> <!-- Tiswadi option -->
+        </select> <!-- End taluka select -->
+        <span class="error-message" id="talukaError"></span> <!-- Taluka error message span -->
+        <label>Enter your Date of Birth</label> <!-- DOB label -->
+        <input type="date" id="dob" name="DateOfBirth"> <!-- Date input field -->
+        <span class="error-message" id="dobError"></span> <!-- DOB error message span -->
+        <label for="myfile">Add a Profile Pic</label> <!-- Profile picture label -->
+        <input type="file" id="photo" name="photo" accept="image/*"> <!-- File input for profile picture -->
+        <span class="error-message" id="photoError"></span> <!-- Photo error message span -->
+        <label>Select Webpage Theme Color</label> <!-- Theme color label -->
+        <input type="color" id="themeColor" name="themeColor"> <!-- Color picker input -->
+        <h3>What are your hobbies?</h3> <!-- Hobbies heading -->
+        <textarea rows="5" id="hobbies" placeholder="Enter your hobbies"></textarea> <!-- Hobbies textarea -->
+        <span class="error-message" id="hobbiesError"></span> <!-- Hobbies error message span -->
+        <div class="btn"> <!-- Button container -->
+            <input type="submit" id="favcolor" name="favcolor" value="Register"> <!-- Submit button -->
+        </div></form></div>
+<script>
+const registrationForm=document.getElementById('registrationForm');
+const fnameInput=document.getElementById('fname');
+const usernameInput=document.getElementById('username');
+const emailInput=document.getElementById('email');
+const passwordInput=document.getElementById('password');
+const confirmPasswordInput=document.getElementById('confirmPassword');
+const phoneInput=document.getElementById('phone');
+const talukaSelect=document.getElementById('taluka');
+const dobInput=document.getElementById('dob');
+const photoInput=document.getElementById('photo');
+const hobbiesInput=document.getElementById('hobbies');
+const fnameError=document.getElementById('fnameError');
+const usernameError=document.getElementById('usernameError');
+const emailError=document.getElementById('emailError');
+const passwordError=document.getElementById('passwordError');
+const confirmPasswordError=document.getElementById('confirmPasswordError');
+const phoneError=document.getElementById('phoneError');
+const branchError=document.getElementById('branchError');
+const languageError=document.getElementById('languageError');
+const talukaError=document.getElementById('talukaError');
+const dobError=document.getElementById('dobError');
+const photoError=document.getElementById('photoError');
+const hobbiesError=document.getElementById('hobbiesError');
+function validateName(){
+    const name=fnameInput.value.trim();
+    clearError(fnameInput,fnameError);
+    if(name===''){showError(fnameInput,fnameError,'Name is required');return false;}
+    if(name.length<2){showError(fnameInput,fnameError,'Name must be at least 2 characters');return false;}
+    if(name.length>50){showError(fnameInput,fnameError,'Name must not exceed 50 characters');return false;}
+    if(!/^[a-zA-Z\s']+$/.test(name)){showError(fnameInput,fnameError,'Name can only contain letters and spaces');return false;}
+    return true;
+}
+function validateUsername(){
+    const username=usernameInput.value.trim();
+    clearError(usernameInput,usernameError);
+    if(username===''){showError(usernameInput,usernameError,'Username is required');return false;}
+    if(!/^[a-zA-Z0-9_]+$/.test(username)){
+        showError(usernameInput,usernameError,'Username can only contain letters, numbers, and underscores');
+        return false; }
+    if(username.length<3){showError(usernameInput,usernameError,'Username must be at least 3 characters');return false;}
+    if(username.length>20){showError(usernameInput,usernameError,'Username must not exceed 20 characters');return false;}
+    return true;
+}
+function validateEmail(){
+    const email=emailInput.value.trim();
+    clearError(emailInput,emailError);
+    if(email===''){showError(emailInput,emailError,'Email is required');return false;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showError(emailInput,emailError,'Please enter a valid email address');return false;}
+    return true;
+}
+function validatePassword(){
+    const password=passwordInput.value;
+    clearError(passwordInput,passwordError);
+    if(password===''){showError(passwordInput,passwordError,'Password is required');return false;}
+    if(!/\d/.test(password)){showError(passwordInput,passwordError,'Password must contain at least one number');return false;}
+    if(!/[a-zA-Z]/.test(password)){showError(passwordInput,passwordError,'Password must contain at least one letter');return false;}
+    if(password.length<6){showError(passwordInput,passwordError,'Password must be at least 6 characters');return false;}
+    if(password.length>16){showError(passwordInput,passwordError,'Password must not exceed 16 characters');return false;}
+    return true;
+}
+function validateConfirmPassword(){
+    const password=passwordInput.value;
+    const confirmPassword=confirmPasswordInput.value;
+    clearError(confirmPasswordInput,confirmPasswordError);
+    if(confirmPassword===''){showError(confirmPasswordInput,confirmPasswordError,'Please confirm your password');return false;}
+    if(password!==confirmPassword){showError(confirmPasswordInput,confirmPasswordError,'Passwords do not match');return false;}
+    return true;
+}
+function validatePhone(){
+    const phone=phoneInput.value.trim();
+    clearError(phoneInput,phoneError);
+    if(phone===''){showError(phoneInput,phoneError,'Phone number is required');return false;}
+    if(!/^\d{10}$/.test(phone)){showError(phoneInput,phoneError,'Please enter a valid 10-digit phone number');return false;}
+    return true;
+}
+function validateBranch(){
+    const branch=document.querySelector('input[name="branch"]:checked');
+    clearError(null,branchError);
+    if(!branch){showError(null,branchError,'Please select a branch');return false;}
+    return true;
+}
+function validateLanguages(){
+    const languages=document.querySelectorAll('input[type="checkbox"]:checked');
+    clearError(null,languageError);
+    if(languages.length===0){showError(null,languageError,'Please select at least one language');return false;}
+    return true;
+}
+function validatetaluka(){
+    const taluka=talukaSelect.value;
+    clearError(talukaSelect,talukaError);
+    if(taluka===''){showError(talukaSelect,talukaError,'Please select a taluka');return false;}
+    return true;
+}
+function validateDOB(){
+    const dob=dobInput.value;
+    clearError(dobInput,dobError);
+    if(dob===''){showError(dobInput,dobError,'Date of birth is required');return false;}
+    const today=new Date();
+    const birthDate=new Date(dob);
+    let age=today.getFullYear()-birthDate.getFullYear();
+    const monthDiff=today.getMonth()-birthDate.getMonth();
+    if(monthDiff<0||(monthDiff===0&&today.getDate()<birthDate.getDate())){age--;}
+    if(age<13){showError(dobInput,dobError,'You must be at least 13 years old');return false;}
+    if(age>120){showError(dobInput,dobError,'Please enter a valid date of birth');return false;}
+    return true;
+}
+function validatePhoto(){
+    const photo=photoInput.files[0];
+    clearError(photoInput,photoError);
+    if(!photo)return true;
+    const maxSize=5*1024*1024;
+    if(photo.size>maxSize){showError(photoInput,photoError,'Image size must not exceed 5MB');return false;}
+    const allowedTypes=['image/jpeg','image/jpg','image/png','image/gif'];
+    if(!allowedTypes.includes(photo.type)){
+        showError(photoInput,photoError,'Only JPEG, PNG, and GIF images are allowed');
+        return false; }
+    return true;
+}
+function validateHobbies(){
+    const hobbies=hobbiesInput.value.trim();
+    clearError(hobbiesInput,hobbiesError);
+    if(hobbies===''){showError(hobbiesInput,hobbiesError,'Please tell us about your hobbies');return false;}
+    if(hobbies.length<10){showError(hobbiesInput,hobbiesError,'Please provide at least 10 characters');return false;}
+    if(hobbies.length>500){showError(hobbiesInput,hobbiesError,'Hobbies must not exceed 500 characters');return false;}
+    return true;
+}
+function showError(inputElement,errorElement,message){
+    if(inputElement)inputElement.classList.add('error');
+    errorElement.textContent=message;
+    errorElement.classList.add('show');
+}
+function clearError(inputElement,errorElement){
+    if(inputElement)inputElement.classList.remove('error');
+    errorElement.classList.remove('show');
+    errorElement.textContent='';
+}
+registrationForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    const isNameValid=validateName();
+    const isUsernameValid=validateUsername();
+    const isEmailValid=validateEmail();
+    const isPasswordValid=validatePassword();
+    const isConfirmPasswordValid=validateConfirmPassword();
+    const isPhoneValid=validatePhone();
+    const isBranchValid=validateBranch();
+    const isLanguagesValid=validateLanguages();
+    const istalukaValid=validatetaluka();
+    const isDOBValid=validateDOB();
+    const isPhotoValid=validatePhoto();
+    const isHobbiesValid=validateHobbies();
+    if(isNameValid&&isUsernameValid&&isEmailValid&&isPasswordValid&&isConfirmPasswordValid&&isPhoneValid
+        &&isBranchValid&&isLanguagesValid&&istalukaValid&&isDOBValid&&isPhotoValid&&isHobbiesValid){
+    alert('Registration successful! ✓\nWelcome, '+fnameInput.value.trim()+'!');
+    }else{ alert('Please fix the errors in the form before submitting.'); }});
+</script></body></html>

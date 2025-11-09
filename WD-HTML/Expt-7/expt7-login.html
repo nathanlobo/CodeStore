@@ -15,7 +15,6 @@
             background-position: center; /* Center background image */
             background-size: cover; /* Cover entire background area */
         }
-
         /* Card */
         .login-container { /* Styles for login container card */
             background: #fff; /* Set white background */
@@ -25,24 +24,20 @@
             width: 350px; /* Set fixed width */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow effect */
         }
-
         h2 { /* Styles for h2 heading */
             margin: 0 0 1.5rem; /* Set margin: top 0, bottom 1.5rem */
             color: #808080; /* Set gray color */
             text-align: center; /* Center align text */
         }
-
         form { /* Styles for form element */
             display: flex; /* Use flexbox layout */
             flex-direction: column; /* Stack items vertically */
         }
-
         label { /* Styles for label elements */
             margin-bottom: 0.5rem; /* Add bottom margin */
             font-weight: 600; /* Set bold font weight */
             color: #555; /* Set dark gray color */
         }
-
         input[type="text"],
         input[type="password"] { /* Styles for text and password inputs */
             padding: 0.75rem; /* Add padding inside input */
@@ -57,7 +52,6 @@
             border-color: #007bff; /* Change border to blue on focus */
             outline: none; /* Remove default outline */
         }
-
         button { /* Styles for button element */
             padding: 0.75rem; /* Add padding inside button */
             background-color: #373737; /* Set dark gray background */
@@ -71,7 +65,6 @@
         button:hover { /* Styles for button on hover */
             background-color: #1c1d1d; /* Darken background on hover */
         }
-
         /* Links */
         .forgot-password { /* Styles for forgot password link */
             display: inline-block; /* Display as inline block */
@@ -84,7 +77,6 @@
             text-decoration: underline; /* Add underline on hover */
             color: #000; /* Change to black on hover */
         }
-
         .signup-option { /* Styles for signup option text */
             margin-top: 1.5rem; /* Add top margin */
             text-align: center; /* Center align text */
@@ -99,8 +91,6 @@
         .signup-link:hover { /* Styles for signup link on hover */
             text-decoration: none; /* Remove underline on hover */
         }
-
-        /* Error message styling */
         .error-message { /* Styles for error messages */
             color: #dc3545; /* Set red color */
             font-size: 0.85rem; /* Set smaller font size */
@@ -124,21 +114,16 @@
             <label for="username">Username</label> <!-- Username label -->
             <input type="text" id="username" name="username" placeholder="Enter username"/> <!-- Username input field -->
             <span class="error-message" id="usernameError"></span> <!-- Username error message span -->
-
             <label for="password">Password</label> <!-- Password label -->
             <input type="password" id="password" name="password" placeholder="Enter password"/> <!-- Password input field -->
             <span class="error-message" id="passwordError"></span> <!-- Password error message span -->
-
             <button type="submit">Login</button> <!-- Submit button -->
-
             <a href="#" class="forgot-password">Forgot password?</a> <!-- Forgot password link -->
-
             <div class="signup-option"> <!-- Signup option section -->
                 Don't have an account? <a href="./expt7-register.html" class="signup-link">Register</a> <!-- Register link -->
             </div> <!-- End signup option section -->
         </form>
     </div> <!-- End login container -->
-
     <script>
         // Get form and input elements
         const loginForm = document.getElementById('loginForm'); // Get login form element by ID
@@ -146,7 +131,6 @@
         const passwordInput = document.getElementById('password'); // Get password input element by ID
         const usernameError = document.getElementById('usernameError'); // Get username error span element by ID
         const passwordError = document.getElementById('passwordError'); // Get password error span element by ID
-
         // Validation functions
         function validateUsername() { // Function to validate username
             const username = usernameInput.value.trim(); // Get username value and remove spaces at ends
@@ -173,7 +157,6 @@
             }
             return true; // Return true if all validations pass
         }
-
         function validatePassword() { // Function to validate password
             const password = passwordInput.value; // Get password value
             // Clear previous error
@@ -193,7 +176,6 @@
             }
             return true; // Return true if all validations pass
         }
-
         function showError(inputElement, errorElement, message) { // Function to display error message
             // Add 'error' class to input field for red border styling
             inputElement.classList.add('error'); // Add 'error' class to input element
@@ -202,7 +184,6 @@
             // Add 'show' class to make the error message visible
             errorElement.classList.add('show'); // Add 'show' class to error element
         }
-
         // Real-time validation on input
         usernameInput.addEventListener('input', function() { // Add input event listener to username field
             if (usernameInput.value.trim() !== '') { // Check if username is not empty
@@ -212,7 +193,6 @@
                 usernameInput.classList.remove('error'); // Remove error styling
             }
         });
-
         passwordInput.addEventListener('input', function() { // Add input event listener to password field
             if (this.value !== '') { // Check if password is not empty
                 validatePassword(); // Validate password
@@ -221,7 +201,6 @@
                 passwordInput.classList.remove('error'); // Remove error styling
             }
         });
-
         // Form submission validation
         loginForm.addEventListener('submit', function(e) { // Add submit event listener to form
             // Prevent default form submission (stops page reload)
@@ -230,13 +209,11 @@
                 alert('Login successful! ✓\nUsername: ' + usernameInput.value.trim()); // Show success alert
             }
         });
-
         // Clear error on focus
         usernameInput.addEventListener('focus', function() { // Add focus event listener to username field
             usernameError.classList.remove('show'); // Hide error message on focus
             usernameInput.classList.remove('error'); // Remove error styling on focus
         });
-
         passwordInput.addEventListener('focus', function() { // Add focus event listener to password field
             passwordError.classList.remove('show'); // Hide error message on focus
             passwordInput.classList.remove('error'); // Remove error styling on focus
