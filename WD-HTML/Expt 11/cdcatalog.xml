@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cdcatalog.xsl"?>
+<catalog>
+    <cd>
+        <title>Blue Night</title>
+        <artist>MLTR</artist>
+        <country>South Africa, Japan, and Malaysia</country>
+        <company>Medley Records</company>
+        <price>$10.90</price>
+        <year>1996</year>        
+    </cd>
+    <cd>
+        <title>Coast to Coast</title>
+        <artist>Westlife</artist>
+        <country>UK</country>
+        <company>Rotterdam</company>
+        <price>$12.98</price>
+        <year>2000</year>
+    </cd>
+</catalog>

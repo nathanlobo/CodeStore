@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+    <person>
+        <name>Nathan Lobo</name>
+        <role>Programmer, Tech Enthusiast, Electronics &amp; Computer Engineer</role>
+        <location>Goa, India</location>
+    </person>
+    <skills>
+        <programming>
+            <language>Python</language>
+            <language>C</language>
+            <language>C++</language>
+            <language>HTML, CSS, JavaScript (Web Basics)</language>
+        </programming>
+        <frameworks_and_tools>
+            <tool>Arduino IDE</tool>
+            <tool>Visual Studio Code</tool>
+            <tool>XAMPP</tool>
+            <tool>Git</tool>
+        </frameworks_and_tools>
+        <domains>
+            <domain>Automation</domain>
+            <domain>Bot Development</domain>
+            <domain>IoT Projects</domain>
+            <domain>Web Automation</domain>
+            <domain>App Development</domain>
+        </domains>
+    </skills>
+    <projects>
+        <project name="Excel To PDF By Lobo" type="Desktop App" year="2025"/>
+        <project name="License Plate Recognition System" type="Raspberry Pi Project" year="2025"/>
+        <project name="SaveForLater" type="Android App" year="2025"/>
+        <project name="CodeStore" type="Web App" year="2025"/>
+    </projects>
+    <interests>
+        <interest>Electronics Repair</interest>
+        <interest>Voice Bot Development</interest>
+        <interest>Music</interest>
+        <interest>App / Web Development</interest>
+    </interests>
+    <hobbies>
+        <hobby>Coding Automation Bots</hobby>
+        <hobby>Building Circuits with Arduino</hobby>
+        <hobby>Exploring New Programming Tools</hobby>
+        <hobby>Listening to Music</hobby>
+    </hobbies>
+    <goals>
+        <goal>Build AI-powered personal assistant</goal>
+        <goal>Develop open-source automation tools</goal>
+        <goal>Create educational content for aspiring programmers</goal>
+        <goal>Contribute to community tech projects</goal>
+    </goals>
+</profile>
