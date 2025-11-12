@@ -11,7 +11,7 @@ class Employee {
 class Programmer: public Employee {
 public:
     void showSkills() {
-        cout << "Skills: C, C++, Python, HTML, PHP" << endl;
+        cout << "Skills: C++, Python, HTML, PHP" << endl;
     }
 };
 int main() {

@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 // Base class
 class University {
 protected:
@@ -11,6 +12,7 @@ public:
         cout<< "University Name: " << universityName << endl;
     }
 };
+
 // Derived class 1
 class Department : public University {
 protected:
@@ -88,6 +90,7 @@ public:
         cout << "Hostel Total Rooms: " << totalRooms << endl;
     }
 };
+
 int main() {
     // University
     University uni;
