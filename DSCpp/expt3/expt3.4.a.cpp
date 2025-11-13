@@ -3,7 +3,7 @@ using namespace std;
 // Base class
 class Student {
     protected:
-    int rollNo;
+    string rollNo;
     string name;
     public:
     void getStudentData() {
