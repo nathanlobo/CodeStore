@@ -22,7 +22,7 @@ class Student {
 // Derived class from Student
 class Academic : public Student {
     protected:
-    int marks[3];
+    float marks[3];
     public:
     void getMarks() {
         cout << "Enter marks of 3 subjects: ";
@@ -41,7 +41,7 @@ class Academic : public Student {
 // Derived class from Academic
 class Result : public Academic {
     private:
-    int total;
+    float total;
     float percentage;
 
     public:
