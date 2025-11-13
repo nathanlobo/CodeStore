@@ -1,6 +1,3 @@
-// Nathan Lobo - 25LEC07
-// Expt 4b - Implementation of Double Linked List
-
 #include <iostream>
 using namespace std;
 
